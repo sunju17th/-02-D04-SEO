@@ -37,7 +37,7 @@
 
                     <a href="{{ route('product.detail', $product->slug) }}" 
                        class="block w-full text-center bg-gray-900 text-white font-medium py-3 rounded-xl hover:bg-green-600 shadow-lg shadow-gray-200 hover:shadow-green-200 transition-all duration-300">
-                        Xem & Phân Tích SEO
+                        Xem Chi Tiết
                     </a>
                 </div>
             </div>
@@ -45,20 +45,5 @@
 
     </div>
     
-    {{-- Technical Note --}}
-    <div class="mt-20 p-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-blue-200 rounded-full opacity-20 blur-xl"></div>
-        <div class="relative z-10 flex gap-4 items-start">
-            <div class="bg-blue-600 text-white p-3 rounded-lg shadow-md shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-            <div>
-                <h3 class="font-bold text-blue-900 text-lg">Góc kỹ thuật (Technical Note):</h3>
-                <p class="text-blue-800 mt-2 leading-relaxed">
-                    Tại trang chủ này, hệ thống đang thực hiện kỹ thuật <strong>Internal Linking</strong>. 
-                    Các thẻ <code>&lt;a href="..."&gt;</code> được tối ưu để Google Bot dễ dàng "crawling" (thu thập dữ liệu) từ trang chủ vào các trang con (Silo structure).
-                </p>
-            </div>
-        </div>
-    </div>
+    
 @endsection
