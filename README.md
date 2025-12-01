@@ -66,19 +66,15 @@ git clone <link-repo-cua-ban>
 cd <ten-thu-muc-du-an>
 Bước 2: Cài đặt thư viện
 
-Bash
-
 composer install
+
 Bước 3: Cấu hình môi trường
 
 Copy file cấu hình mẫu:
 
-Bash
-
 cp .env.example .env
-Mở file .env và cấu hình kết nối Database (XAMPP):
 
-Ini, TOML
+Mở file .env và cấu hình kết nối Database (XAMPP):
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -86,6 +82,7 @@ DB_PORT=3306
 DB_DATABASE=seo  <-- Hãy tạo database này trong phpMyAdmin trước
 DB_USERNAME=root
 DB_PASSWORD=
+
 Bước 4: Tạo Key ứng dụng & Liên kết ảnh
 
 php artisan key:generate
@@ -99,14 +96,14 @@ php artisan migrate:fresh --seed
 
 Bước 6: Chạy Server
 
-Bash
-
 php artisan serve
+
 Truy cập: http://127.0.0.1:8000
 
 5. Hướng dẫn kiểm thử & Demo
 
 A. Demo quy trình quản trị (Admin)
+
 Truy cập: http://127.0.0.1:8000/admin
 
 Nhấn "Thêm mới".
@@ -121,8 +118,6 @@ B. Demo hiệu quả SEO (Google Rich Results)
 Để Google Bot truy cập được Localhost, cần sử dụng Ngrok hoặc LocalTunnel.
 
 Mở Terminal mới, chạy Tunnel:
-
-Bash
 
 # Nếu dùng Ngrok
 ngrok http 8000
@@ -142,6 +137,7 @@ Dán link sản phẩm (VD: /menu/tra-sua) và kiểm tra.
 ✅ Kết quả: Hiển thị thẻ xanh Product, xem trước có Ảnh và Giá.
 
 6. Cấu trúc thư mục
+
 Các file quan trọng chứa logic xử lý:
 
 app/Models/Product.php: Cấu hình getRouteKeyName (Slug) và các fillable.
@@ -170,7 +166,5 @@ Các kịch bản test:
 [x] Validation dữ liệu đầu vào.
 
 Cách chạy test:
-
-Bash
 
 php artisan test
