@@ -63,8 +63,8 @@ Dự án tập trung vào:
 ## 4. Hướng dẫn cài đặt (Localhost)
 ### **Bước 1: Clone dự án**
 ```bash
-git clone <link-repo>
-cd <ten-thu-muc-du-an>
+git clone https://github.com/sunju17th/-02-D04-SEO
+cd '-02-D04-SEO'
 ```
 
 ### **Bước 2: Cài đặt thư viện**
@@ -87,7 +87,7 @@ DB_PASSWORD=
 ```
 > **Lưu ý:** Hãy tạo database `seo` trong phpMyAdmin trước.
 
-### **Bước 4: Tạo key **
+### **Bước 4: Tạo key**
 ```bash
 php artisan key:generate
 ```
@@ -114,7 +114,6 @@ Truy cập: `http://127.0.0.1:8000/admin`
 - Upload ảnh → ảnh được đổi tên theo slug.
 
 ### 🌐 **B. Demo hiệu quả SEO (Rich Results – Google)**
-Google không thể truy cập localhost → cần mở tunnel bằng Ngrok hoặc LocalTunnel.
 
 #### Dùng Ngrok
 ```bash
@@ -130,6 +129,14 @@ php artisan config:clear
 ```
 Kiểm tra bằng **Google Rich Results Test**.
 
+#### Dùng mã code 
+Bạn có thể kiểm tra **Google Rich Results Test** mà không cần URL, bằng cách truy cập
+trang bất kì nào cả trang web và nhấn tổ hợp phím Ctrl + U, sao chép và dán vào mục
+Kiếm tra bằng mã code của **Google Rich Results Test**
+
+#### Dùng Lighthouse của Chrome
+- Ấn F12 chọn tag **Lighthouse** 
+- Chọn **Analyze page load** 
 ---
 
 ## 6. Cấu trúc thư mục quan trọng
