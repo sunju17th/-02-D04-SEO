@@ -1,59 +1,176 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# DrinkStore Demo - Hệ Thống Website Tối Ưu Hóa SEO On-page
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> **Đồ án môn học:** Công nghệ phần mềm
+> **Sinh viên thực hiện:** Lê Vũ Quang Huy
+> **Công nghệ:** Laravel Framework (Server-Side Rendering)
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📑 Mục lục
+1. [Giới thiệu dự án](#1-giới-thiệu-dự-án)
+2. [Tính năng SEO nổi bật](#2-tính-năng-seo-nổi-bật)
+3. [Yêu cầu hệ thống](#3-yêu-cầu-hệ-thống)
+4. [Hướng dẫn cài đặt (Localhost)](#4-hướng-dẫn-cài-đặt-localhost)
+5. [Hướng dẫn kiểm thử & Demo](#5-hướng-dẫn-kiểm-thử--demo)
+6. [Cấu trúc thư mục](#6-cấu-trúc-thư-mục)
+7. [Unit Testing](#7-unit-testing)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 1. Giới thiệu dự án
+Dự án là một website giới thiệu sản phẩm đồ uống được xây dựng với mục tiêu tối thượng là **Tối ưu hóa công cụ tìm kiếm (SEO)**. 
 
-## Learning Laravel
+Khác với các Single Page Application (SPA) thường gặp khó khăn trong việc Index nội dung, dự án này sử dụng cơ chế **Server-Side Rendering (SSR)** của Laravel để đảm bảo Google Bot và các Crawler có thể đọc hiểu dữ liệu ngay lập tức. Hệ thống tập trung vào việc xử lý các thẻ Meta, cấu trúc dữ liệu Schema.org và tối ưu hóa đường dẫn (URL).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 2. Tính năng SEO nổi bật
 
-## Laravel Sponsors
+### 🚀 Kỹ thuật SEO On-page
+* **Pretty URLs (Đường dẫn thân thiện):**
+    * Sử dụng `Slug` thay vì ID.
+    * Ví dụ: `domain.com/menu/tra-sua-tran-chau` (Thay vì `/product/1`).
+* **Dynamic Meta Tags:**
+    * Thẻ `Title`, `Meta Description`, `Open Graph` tự động thay đổi theo từng sản phẩm.
+    * **Auto-generate:** Nếu Admin quên nhập Meta Description, hệ thống tự động trích xuất 150 ký tự từ mô tả chính.
+* **Structured Data (JSON-LD):**
+    * Tích hợp Schema `Product` và `Offer`.
+    * Giúp hiển thị **Rich Snippets** (Giá tiền, Ảnh thumbnail, Tình trạng kho) trên kết quả tìm kiếm Google.
+* **Image Optimization:**
+    * Tự động đổi tên file ảnh theo tên sản phẩm khi upload (VD: `tra-sua-ngon.jpg`) để tối ưu cho Google Image Search.
+    * Sử dụng thuộc tính `loading="lazy"` và thẻ `alt` tự động.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🛠️ Chức năng quản trị (CMS)
+* Quản lý sản phẩm (Thêm/Sửa/Xóa).
+* Tự động tạo Slug khi nhập tên.
+* Upload ảnh và lưu trữ chuẩn quy hoạch.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 3. Yêu cầu hệ thống
+Để chạy dự án, máy tính cần cài đặt:
+- **PHP**: >= 8.1
+- **Composer**: Trình quản lý thư viện PHP.
+- **XAMPP/WAMP**: Để chạy MySQL Database.
+- **Node.js** (Tùy chọn): Nếu muốn dùng các tool tunnel như LocalTunnel.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 4. Hướng dẫn cài đặt (Localhost)
 
-## Code of Conduct
+Vui lòng thực hiện tuần tự các bước sau để tránh lỗi:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Bước 1: Clone mã nguồn**
+```bash
+git clone <link-repo-cua-ban>
+cd <ten-thu-muc-du-an>
+Bước 2: Cài đặt thư viện
 
-## Security Vulnerabilities
+Bash
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+composer install
+Bước 3: Cấu hình môi trường
 
-## License
+Copy file cấu hình mẫu:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Bash
+
+cp .env.example .env
+Mở file .env và cấu hình kết nối Database (XAMPP):
+
+Ini, TOML
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=seo  <-- Hãy tạo database này trong phpMyAdmin trước
+DB_USERNAME=root
+DB_PASSWORD=
+Bước 4: Tạo Key ứng dụng & Liên kết ảnh
+
+php artisan key:generate
+php artisan storage:link  <-- BẮT BUỘC để hiển thị ảnh
+
+Bước 5: Khởi tạo Database & Dữ liệu mẫu
+
+php artisan migrate:fresh --seed
+
+(Lệnh này sẽ tạo bảng và tự động thêm các sản phẩm mẫu để test)
+
+Bước 6: Chạy Server
+
+Bash
+
+php artisan serve
+Truy cập: http://127.0.0.1:8000
+
+5. Hướng dẫn kiểm thử & Demo
+
+A. Demo quy trình quản trị (Admin)
+Truy cập: http://127.0.0.1:8000/admin
+
+Nhấn "Thêm mới".
+
+Nhập tên sản phẩm -> Quan sát ô Slug tự động được điền.
+
+Bỏ trống Meta Description -> Hệ thống sẽ tự động lấy từ mô tả chi tiết.
+
+Upload ảnh -> Hệ thống sẽ tự đổi tên ảnh theo slug.
+
+B. Demo hiệu quả SEO (Google Rich Results)
+Để Google Bot truy cập được Localhost, cần sử dụng Ngrok hoặc LocalTunnel.
+
+Mở Terminal mới, chạy Tunnel:
+
+Bash
+
+# Nếu dùng Ngrok
+ngrok http 8000
+Copy đường dẫn Public (VD: https://abcd.ngrok-free.app).
+
+Cập nhật vào file .env (Để link ảnh hiển thị đúng):
+
+Ini, TOML
+
+APP_URL=[https://abcd.ngrok-free.app](https://abcd.ngrok-free.app)
+Chạy lệnh xóa cache config: php artisan config:clear.
+
+Truy cập công cụ: Google Rich Results Test.
+
+Dán link sản phẩm (VD: /menu/tra-sua) và kiểm tra.
+
+✅ Kết quả: Hiển thị thẻ xanh Product, xem trước có Ảnh và Giá.
+
+6. Cấu trúc thư mục
+Các file quan trọng chứa logic xử lý:
+
+app/Models/Product.php: Cấu hình getRouteKeyName (Slug) và các fillable.
+
+app/Http/Controllers/HomeController.php: Logic hiển thị Frontend và truyền dữ liệu Meta.
+
+app/Http/Controllers/AdminProductController.php: Logic CRUD, xử lý upload ảnh và tự động tạo SEO data.
+
+resources/views/layout.blade.php: Chứa thẻ <head>, Meta tags global.
+
+resources/views/product.blade.php: Chứa mã Schema JSON-LD và hiển thị chi tiết.
+
+routes/web.php: Định tuyến hệ thống.
+
+7. Unit Testing
+Dự án bao gồm bộ kiểm thử tự động (Unit Test) để đảm bảo các logic SEO hoạt động chính xác.
+
+Các kịch bản test:
+
+[x] Tự động tạo Slug từ tên.
+
+[x] Tự động tạo Meta Description nếu bỏ trống.
+
+[x] Upload và đổi tên ảnh chuẩn SEO.
+
+[x] Validation dữ liệu đầu vào.
+
+Cách chạy test:
+
+Bash
+
+php artisan test
