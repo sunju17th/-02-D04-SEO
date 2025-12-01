@@ -87,16 +87,14 @@ DB_PASSWORD=
 ```
 > **Lưu ý:** Hãy tạo database `seo` trong phpMyAdmin trước.
 
-### **Bước 4: Tạo key & liên kết thư mục ảnh**
+### **Bước 4: Tạo key **
 ```bash
 php artisan key:generate
-php artisan storage:link
 ```
 
 ### **Bước 5: Tạo bảng + dữ liệu mẫu**
-```bash
-php artisan migrate:fresh --seed
-```
+
+bạn hãy thêm seo.sql vào database phpmyadmin
 
 ### **Bước 6: Chạy server**
 ```bash
